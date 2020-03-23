@@ -148,6 +148,11 @@ declare module 'stripe' {
 
       interface Capabilities {
         /**
+         * The status of the BECS Direct Debit (AU) payments capability of the account, or whether the account can directly process BECS Direct Debit (AU) charges.
+         */
+        au_becs_debit_payments?: Capabilities.AuBecsDebitPayments;
+
+        /**
          * The status of the card issuing capability of the account, or whether you can use Issuing to distribute funds on cards
          */
         card_issuing?: Capabilities.CardIssuing;
@@ -169,6 +174,8 @@ declare module 'stripe' {
       }
 
       namespace Capabilities {
+        type AuBecsDebitPayments = 'active' | 'inactive' | 'pending';
+
         type CardIssuing = 'active' | 'inactive' | 'pending';
 
         type CardPayments = 'active' | 'inactive' | 'pending';
@@ -1081,6 +1088,8 @@ declare module 'stripe' {
         | 'card_issuing'
         | 'card_payments'
         | 'legacy_payments'
+        | 'tax_reporting_us_1099_k'
+        | 'tax_reporting_us_1099_misc'
         | 'transfers';
 
       interface Settings {
@@ -1698,6 +1707,8 @@ declare module 'stripe' {
         | 'card_issuing'
         | 'card_payments'
         | 'legacy_payments'
+        | 'tax_reporting_us_1099_k'
+        | 'tax_reporting_us_1099_misc'
         | 'transfers';
 
       interface Settings {
